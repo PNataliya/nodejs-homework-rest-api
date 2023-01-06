@@ -1,5 +1,5 @@
 const { Contact } = require("../../models/contact");
-const { createError } = require("../../helpers");
+const RequestError = require("../../helpers");
 
 const updateById = async (req, res, next) => {
   try {
@@ -9,7 +9,7 @@ const updateById = async (req, res, next) => {
       new: true,
     });
     if (!result) {
-      throw createError(404);
+      throw RequestError(404);
     }
     res.json({
       status: "success",

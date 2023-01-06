@@ -1,5 +1,5 @@
 const { Contact } = require("../../models/contact");
-const { createError } = require("../../helpers");
+const RequestError = require("../../helpers");
 
 const updateFavorite = async (req, res, next) => {
   try {
@@ -10,7 +10,7 @@ const updateFavorite = async (req, res, next) => {
     });
 
     if (!result) {
-      throw createError(404);
+      throw RequestError(404);
     }
     res.json({
       status: "success",

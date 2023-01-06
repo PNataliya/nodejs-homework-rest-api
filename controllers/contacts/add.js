@@ -1,11 +1,12 @@
 const { Contact } = require("../../models/contact");
-const { createError } = require("../../helpers");
+const RequestError = require("../../helpers");
 
 const add = async (req, res, next) => {
+  const { _id: owner } = req.user;
   try {
-    const contact = await Contact.create(req.body);
+    const contact = await Contact.create({ ...req.body, owner });
     if (!contact) {
-      throw createError(404);
+      throw RequestError(404);
     }
     res.status(201).json({
       status: "success",

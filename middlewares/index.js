@@ -1,16 +1,9 @@
 const isValidId = require("./isValidId");
 const validationBody = require("./validationBody");
-
-// const {
-//   postJoiSchema,
-//   updateJoiSchema,
-//   favoriteJoiSchema,
-// } = require("./joiSchemas");
+const authenticate = require("./authenticate");
 
 module.exports = {
   isValidId,
   validationBody,
-  // postJoiSchema,
-  // updateJoiSchema,
-  // favoriteJoiSchema,
+  authenticate,
 };

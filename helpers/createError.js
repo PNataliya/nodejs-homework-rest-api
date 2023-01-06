@@ -75,10 +75,4 @@ const statusCode = {
   526: "Invalid SSL Certificate",
 };
 
-const createError = (status, message = statusCode[status]) => {
-  const error = new Error(message);
-  error.status = status;
-  return error;
-};
-
-module.exports = { createError };
+module.exports = statusCode;
